@@ -1,29 +1,75 @@
-# Ex23 Depth First Graph
+# Ex 5B Breadth First Graph
 ## DATE:
 ## AIM:
-To compose the code for the function createNode to traverse the graph below in the depth first fashion.
+To write a printQueue C function of the given graph that is to be traversed in the breadth first manner.
 
-![image](https://github.com/user-attachments/assets/63552824-d0a3-49c6-a473-6db27d1f03e4)
+![image](https://github.com/user-attachments/assets/f483f48c-6af0-4027-a993-01c108a50933)
+
 
 ## Algorithm
-1. 
-2. 
-3. 
-4.  
-5.   
+1. Start the program.
+2. Start from the front index of the queue.
+3. If the queue is empty, print "Queue is empty".
+4. Otherwise, print "Queue contains" and display all items from front to rear.
+5. Return after printing the queue contents.
+6. End the program.
 
 ## Program:
 ```
 /*
-Program to traverse the graph below in the depth first fashion
-Developed by: 
-RegisterNumber:  
+Program to traverse graph using BFS
+Developed by: SUBHIKSHAA M
+RegisterNumber: 212222230151
 */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define SIZE 40
+
+struct queue {
+    int items[SIZE];
+    int front;
+    int rear;
+};
+
+struct queue* createQueue();
+void enqueue(struct queue* q, int);
+int dequeue(struct queue* q);
+void display(struct queue* q);
+int isEmpty(struct queue* q);
+void printQueue(struct queue* q);
+
+struct node {
+    int vertex;
+    struct node* next;
+};
+
+struct node* createNode(int);
+
+struct Graph {
+    int numVertices;
+    struct node** adjLists;
+    int* visited;
+};
+
+void printQueue(struct queue* q) {
+    int i = q->front;
+    if (isEmpty(q)) {
+        printf("Queue is empty");
+    } else {
+        printf("Queue contains ");
+        for (i = q->front; i <= q->rear; i++) {
+            printf("%d", q->items[i]);
+        }
+    }
+}
+
 ```
 
 ## Output:
 
-
+![image](https://github.com/user-attachments/assets/96058575-e291-48b2-addb-7f3d34039b80)
 
 ## Result:
-Thus, the C code for the function createNode to traverse the graph below in the depth first fashion is implemented successfully
+Thus, the code for the printQueue function of the following graph that is to be traversed in the breadth first manner is implemented successfully.
