@@ -1,75 +1,50 @@
-# Ex 5B Breadth First Graph
-## DATE:
+# Ex23 Depth First Graph
+## DATE: 
 ## AIM:
-To write a printQueue C function of the given graph that is to be traversed in the breadth first manner.
+To compose the code for the function createNode to traverse the graph below in the depth first fashion.
 
-![image](https://github.com/user-attachments/assets/f483f48c-6af0-4027-a993-01c108a50933)
-
+![image](https://github.com/user-attachments/assets/63552824-d0a3-49c6-a473-6db27d1f03e4)
 
 ## Algorithm
-1. Start the program.
-2. Start from the front index of the queue.
-3. If the queue is empty, print "Queue is empty".
-4. Otherwise, print "Queue contains" and display all items from front to rear.
-5. Return after printing the queue contents.
-6. End the program.
-
+1. 1. Start
+2. Allocate memory for a new node.
+3. Set the vertex field of the new node to the given value v.
+4. Set the next pointer of the new node to NULL.
+5. Return the newly created node, and end it.
 ## Program:
 ```
 /*
-Program to traverse graph using BFS
+Program to traverse the graph below in the depth first fashion
 Developed by: SUBHIKSHAA M
 RegisterNumber: 212222230151
 */
 
-#include <stdio.h>
-#include <stdlib.h>
-
-#define SIZE 40
-
-struct queue {
-    int items[SIZE];
-    int front;
-    int rear;
+/*#include<stdio.h>
+#include<stdlib.h>
+struct node{
+int vertex;
+struct node* next;
 };
-
-struct queue* createQueue();
-void enqueue(struct queue* q, int);
-int dequeue(struct queue* q);
-void display(struct queue* q);
-int isEmpty(struct queue* q);
-void printQueue(struct queue* q);
-
-struct node {
-    int vertex;
-    struct node* next;
-};
-
-struct node* createNode(int);
-
+struct node*createNode(int v);
 struct Graph {
-    int numVertices;
-    struct node** adjLists;
-    int* visited;
-};
-
-void printQueue(struct queue* q) {
-    int i = q->front;
-    if (isEmpty(q)) {
-        printf("Queue is empty");
-    } else {
-        printf("Queue contains ");
-        for (i = q->front; i <= q->rear; i++) {
-            printf("%d", q->items[i]);
-        }
-    }
+int numVertices;
+int* visited;
+//We need int**to storeatwo dimensionalarray.
+//Similary, weneedstruct node**tostoreanarrayofLinked lists
+struct node** adjLists;
+};*/
+struct node*createNode(int v) {
+struct node* newNode=malloc(sizeof(struct node));
+newNode->vertex=v;
+newNode->next=NULL;
+return newNode;
 }
-
 ```
 
 ## Output:
 
-![image](https://github.com/user-attachments/assets/96058575-e291-48b2-addb-7f3d34039b80)
+![image](https://github.com/user-attachments/assets/69144e45-677b-4ea1-97d0-30736cf4617d)
+
 
 ## Result:
-Thus, the code for the printQueue function of the following graph that is to be traversed in the breadth first manner is implemented successfully.
+Thus, the C code for the function createNode to traverse the graph below in the depth first fashion is implemented successfully
